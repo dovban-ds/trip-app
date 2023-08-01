@@ -1,0 +1,21 @@
+.card:hover {
+  cursor: pointer;
+}
+
+.card-title {
+  display: flex;
+  width: 250px;
+  height: 250px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.city {
+  margin-bottom: 15px;
+}
