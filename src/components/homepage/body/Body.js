@@ -4,6 +4,7 @@ import Search from "../search/Search";
 import Card from "../tripCard/Card";
 import { cities } from "../../../const/cities";
 import Details from "../weatherDetails/Details";
+// import Loader from "../../Loader";
 
 export default function Body() {
   const [showModal, setShowModal] = useState(false);
@@ -14,6 +15,7 @@ export default function Body() {
   return (
     <>
       <div className="body-box">
+        {/* <Loader /> */}
         <Search />
         <div className="trip-cards">
           <Card
