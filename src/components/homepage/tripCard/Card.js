@@ -1,9 +1,9 @@
 import React from "react";
 import "./Card.css";
 
-export default function Card({ city, date }) {
+export default function Card({ city, date, showModal }) {
   return (
-    <div className="card">
+    <div className="card" onClick={() => showModal()}>
       <div className="card-title">
         <img src={`./${city.toLowerCase()}.jpg`} alt={city} />
       </div>
