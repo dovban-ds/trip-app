@@ -10,10 +10,15 @@ import AddTrip from "../addTrip/AddTrip";
 export default function Body() {
   const [showModal, setShowModal] = useState(false);
   const [currCity, setCurrCity] = useState();
+  const [currDate, setCurrDate] = useState();
   const [footer, setFooter] = useState(false);
   const [tripDateArr, setTripDateArr] = useState([]);
-
-  const date = "2023-08-04 - 2023-08-15";
+  const [acceptedTrip, setAcceptedTrip] = useState([
+    {
+      city: cities.kyiv,
+      date: "2023-08-04 - 2023-08-15",
+    },
+  ]);
 
   const handle = () => {
     showModal ? setShowModal(false) : setShowModal(true);
@@ -24,11 +29,11 @@ export default function Body() {
         <Search />
         <div className="trip-cards">
           <Card
-            city={cities.kyiv}
-            date={date}
+            info={acceptedTrip}
             showModal={handle}
             setCity={setCurrCity}
             setFooter={setFooter}
+            setDate={setCurrDate}
           />
           <AddTrip />
         </div>
@@ -37,7 +42,7 @@ export default function Body() {
         <Details
           showModal={handle}
           city={currCity}
-          tripDate={date}
+          tripDate={currDate}
           setTripFooter={setTripDateArr}
         />
       )}
