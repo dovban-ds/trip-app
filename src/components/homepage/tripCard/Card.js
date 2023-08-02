@@ -1,9 +1,10 @@
 import React from "react";
 import "./Card.css";
 
-export default function Card({ city, date, showModal, setCity }) {
+export default function Card({ city, date, showModal, setCity, setFooter }) {
   const cardHandle = () => {
     setCity(city);
+    setFooter(true);
     showModal();
   };
 

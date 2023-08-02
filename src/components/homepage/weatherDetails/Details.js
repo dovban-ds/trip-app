@@ -3,21 +3,19 @@ import "./Details.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import Loader from "../../Loader";
-import Footer from "../footer/Footer";
 import { getCurrentDate } from "../../../api/getCurrentDate";
 import { filterArr } from "../../../api/filterArray";
+import CountDown from "../countDown/CountDown";
 
-export default function Details({ showModal, city, tripDate }) {
+export default function Details({ showModal, city, tripDate, setTripFooter }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const [data, setData] = useState(null);
-  const [tripArr, setTripArr] = useState([]);
   const [actualDay, setActualDay] = useState(null);
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const getDate = getCurrentDate();
-    // console.log(getDate, tripDate.slice(13));
     fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${getDate}/${tripDate.slice(
         13
@@ -27,7 +25,6 @@ export default function Details({ showModal, city, tripDate }) {
       .then((response) => response.json())
       .then((info) => {
         setData(info);
-        // console.log(data);
       })
       .catch((err) => {
         console.error(err);
@@ -41,9 +38,8 @@ export default function Details({ showModal, city, tripDate }) {
       for (let day of data.days) {
         if (parseInt(day.datetime.slice(8)) === currDay) {
           setActualDay(day);
-          setTripArr(filterArr(data.days, tripDate.slice(0, 10)));
+          setTripFooter(filterArr(data.days, tripDate.slice(0, 10)));
           setLoader(false);
-          // console.log(tripArr);
           break;
         }
       }
@@ -63,8 +59,6 @@ export default function Details({ showModal, city, tripDate }) {
   ];
   const dayOfWeek = date.getDay();
   const dayName = allDays[dayOfWeek];
-
-  // console.log(actualDay);
 
   const h = () => {
     showModal();
@@ -93,12 +87,8 @@ export default function Details({ showModal, city, tripDate }) {
                 </p>
               </div>
               <p className="current-city">{data.address}</p>
-
-              <p className="counter">counter</p>
+              <CountDown beginTrip={tripDate.slice(0, 10)} />
             </div>
-          </div>
-          <div>
-            <Footer tripArr={tripArr} />
           </div>
         </>
       )}

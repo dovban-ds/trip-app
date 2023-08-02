@@ -1,0 +1,18 @@
+.addtrip-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 20%;
+  background-color: rgb(247, 243, 243);
+  transition: background-color 1s linear;
+}
+
+.sign {
+  margin-bottom: 10px;
+}
+
+.addtrip-card:hover {
+  cursor: pointer;
+  background-color: rgb(224, 224, 224);
+}
