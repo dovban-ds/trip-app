@@ -63,15 +63,15 @@
 
 .current-temp {
   color: white;
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 5rem;
+  font-weight: 400;
 }
 
 .current-temp span {
   font-weight: 400;
   font-size: 1.5rem;
   position: relative;
-  bottom: 16px;
+  bottom: 53px;
 }
 
 .current-city {
@@ -85,4 +85,16 @@
   font-size: 2.2rem;
   font-weight: 600;
   margin-top: 25%;
+}
+
+.temp-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.temp-cont img {
+  width: 20%;
+  margin-right: 20px;
 }

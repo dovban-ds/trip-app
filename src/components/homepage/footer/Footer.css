@@ -1,0 +1,24 @@
+.footer-title {
+  margin-top: 3%;
+}
+
+.weather {
+  display: flex;
+  margin: 5% 0;
+}
+
+.weather-card {
+  flex-basis: 14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-card-icon {
+  margin: 20px;
+  width: 20%;
+}
+
+.weather-card-temp {
+  font-weight: 600;
+}
