@@ -1,5 +1,7 @@
 .body-box {
   margin-top: 65px;
+  display: flex;
+  flex-direction: column;
 }
 
 .trip-cards {
@@ -33,7 +35,6 @@
 }
 
 .carousel {
-  margin-top: 70px;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: calc((100% / 5) - 30px);
@@ -74,5 +75,11 @@
 @media screen and (max-width: 600px) {
   .carousel {
     grid-auto-columns: 100%;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .body-box {
+    margin-top: 25px;
   }
 }

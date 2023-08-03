@@ -31,15 +31,6 @@ export default function Body() {
     setFirstCard(firstCard.offsetWidth + 30);
   });
 
-  // const arrws = document.querySelectorAll(".trip-cards i");
-
-  // const showHideIcons = () => {
-  //   arrws[0].style.display =
-  //     carousel.current.scrollLeft == 0 ? "none" : "block";
-  //   // arrws[1].style.display =
-  //   //   carousel.current.scrollLeft == scrollWidth ? "none" : "block";
-  // };
-
   return (
     <>
       <div className="body-box">

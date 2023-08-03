@@ -132,3 +132,9 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
+@media screen and (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+}

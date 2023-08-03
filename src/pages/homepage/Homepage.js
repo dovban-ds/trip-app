@@ -6,8 +6,10 @@ import Body from "../../components/homepage/body/Body";
 export default function Homepage() {
   return (
     <div className="homepage-box">
-      <Header />
-      <Body />
+      <div>
+        <Header />
+        <Body />
+      </div>
     </div>
   );
 }

@@ -14,3 +14,9 @@
 .header-box strong {
   font-weight: 800;
 }
+
+@media screen and (max-width: 500px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,7 +1,7 @@
 .homepage-box {
-  padding: 0px 35px;
+  padding: 35px 35px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  height: 100vh;
+  justify-content: flex-start;
+  height: calc(100vh - 70px);
 }

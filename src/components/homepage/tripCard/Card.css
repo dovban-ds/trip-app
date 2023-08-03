@@ -1,9 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  /* flex-basis: 25%; */
   transition: background-color 1s ease-in-out;
-  /* pointer-events: none; */
 }
 
 .card:hover {
