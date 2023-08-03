@@ -66,7 +66,10 @@ export default function Footer({ tripArr, detailsModal }) {
             );
           })}
         </div>
-        <button className="arrow right" onClick={handleScrollRight}>
+        <button
+          className={detailsModal ? "arrow arr-small" : "arrow right"}
+          onClick={handleScrollRight}
+        >
           &gt;
         </button>
       </div>

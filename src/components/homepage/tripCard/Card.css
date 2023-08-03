@@ -1,8 +1,9 @@
 .card {
   display: flex;
   flex-direction: column;
-  flex-basis: 20%;
+  /* flex-basis: 25%; */
   transition: background-color 1s ease-in-out;
+  /* pointer-events: none; */
 }
 
 .card:hover {
@@ -20,6 +21,7 @@
 
 img {
   width: 100%;
+  object-fit: cover;
 }
 
 .card-body {

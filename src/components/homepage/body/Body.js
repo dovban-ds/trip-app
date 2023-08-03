@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./Body.css";
 import Search from "../search/Search";
 import Card from "../tripCard/Card";
@@ -19,25 +19,56 @@ export default function Body() {
       date: "2023-08-04 - 2023-08-15",
     },
   ]);
-
-  console.log(acceptedTrip);
+  const [firstCard, setFirstCard] = useState(null);
+  const carousel = useRef(null);
 
   const handle = () => {
     showModal ? setShowModal(false) : setShowModal(true);
   };
+
+  useEffect(() => {
+    const firstCard = carousel.current.querySelector(".card");
+    setFirstCard(firstCard.offsetWidth + 30);
+  });
+
+  // const arrws = document.querySelectorAll(".trip-cards i");
+
+  // const showHideIcons = () => {
+  //   arrws[0].style.display =
+  //     carousel.current.scrollLeft == 0 ? "none" : "block";
+  //   // arrws[1].style.display =
+  //   //   carousel.current.scrollLeft == scrollWidth ? "none" : "block";
+  // };
+
   return (
     <>
       <div className="body-box">
-        <Search />
+        {/* <Search /> */}
         <div className="trip-cards">
-          <Card
-            info={acceptedTrip}
-            showModal={handle}
-            setCity={setCurrCity}
-            setFooter={setFooter}
-            setDate={setCurrDate}
-          />
-          <AddTrip setAcceptedTrip={setAcceptedTrip} />
+          <i
+            className="fa-solid fa-angle-left"
+            onClick={(e) => {
+              // showHideIcons();
+              carousel.current.scrollLeft += -firstCard;
+            }}
+          ></i>
+          <ul className="carousel" ref={carousel}>
+            <Card
+              info={acceptedTrip}
+              showModal={handle}
+              setCity={setCurrCity}
+              setFooter={setFooter}
+              setDate={setCurrDate}
+            />
+            <AddTrip setAcceptedTrip={setAcceptedTrip} />
+          </ul>
+          <i
+            className="fa-solid fa-angle-right"
+            onClick={() => {
+              // showHideIcons();
+              carousel.current.scrollLeft += firstCard;
+            }}
+          ></i>
         </div>
       </div>
       {showModal && (

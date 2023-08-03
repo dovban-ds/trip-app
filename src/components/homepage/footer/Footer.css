@@ -1,41 +1,56 @@
 .footer-title {
-  margin-top: 3%;
+  margin-top: 2%;
+  margin-bottom: 3%;
   font-weight: 600;
   font-size: 1.5rem;
 }
 
 .carousel-wrapper {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+  max-width: calc(100vw - 70px);
+  width: 100%;
+  position: relative;
 }
 
 .weather {
-  display: flex;
+  /* display: flex;
   margin: 3% 0;
   flex-wrap: nowrap;
-  /* width: 55%; */
   overflow: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scroll-padding: 0 24px;
+  */
   transition: width 0.3s linear;
+  display: grid;
+  grid-auto-flow: column;
+  /* grid-auto-columns: calc((100% / 6) - 30px); */
+  gap: 30px;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  position: relative;
 }
 
 .small {
   width: 55%;
+  grid-auto-columns: calc((100% / 3) - 30px);
 }
 
 .full {
   width: 100%;
+  grid-auto-columns: calc((100% / 6) - 30px);
 }
 
-.flex-small {
+/* .flex-small {
   flex-basis: 25%;
 }
 
 .flex-full {
   flex-basis: 16%;
-}
+} */
 
 .weather-card {
   scroll-snap-align: start;
@@ -49,7 +64,12 @@
 
 .weather-card-icon {
   margin: 20px;
-  width: 20%;
+  width: 4rem;
+  flex-grow: 1;
+}
+
+.weather-card-icon img {
+  width: 100%;
 }
 
 .weather-card-temp {
@@ -68,20 +88,48 @@
   height: 40px;
   border: none;
   background-color: transparent;
-  font-size: 24px;
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
   z-index: 99999;
+  transition: right 0.3s linear;
 }
 
-.arrow.left::before {
-  content: "<";
-}
-
-.arrow.right::before {
-  content: ">";
-}
-/* 
 .left {
-  display: none;
-} */
+  left: -22px;
+}
+
+.right {
+  right: -22px;
+}
+
+.arr-small {
+  right: 45%;
+}
+
+@media screen and (max-width: 1200px) {
+  .full {
+    grid-auto-columns: calc((100% / 4) - 30px);
+  }
+  .small {
+    grid-auto-columns: calc((100% / 2) - 30px);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .full {
+    grid-auto-columns: calc((100% / 3) - 30px);
+  }
+  .small {
+    grid-auto-columns: calc((100% / 1) - 30px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .full {
+    grid-auto-columns: calc((100% / 1) - 30px);
+  }
+}

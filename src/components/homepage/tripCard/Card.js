@@ -13,19 +13,24 @@ export default function Card({ info, showModal, setCity, setFooter, setDate }) {
     <>
       {info.map((card, index) => {
         return (
-          <div
+          <li
             className="card"
             onClick={() => cardHandle(card.city, card.date)}
             key={index}
+            draggable="false"
           >
             <div className="card-title">
-              <img src={`./${card.city.toLowerCase()}.jpg`} alt={card.city} />
+              <img
+                src={`./${card.city.toLowerCase()}.jpg`}
+                alt={card.city}
+                draggable="false"
+              />
             </div>
             <div className="card-body">
               <p className="city">{card.city}</p>
               <p>{card.date}</p>
             </div>
-          </div>
+          </li>
         );
       })}
     </>

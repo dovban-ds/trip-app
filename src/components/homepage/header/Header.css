@@ -1,10 +1,14 @@
 .header-box {
-  font-size: 2rem;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -khtml-user-select: none;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 25px;
 }
 
 .header-box strong {
