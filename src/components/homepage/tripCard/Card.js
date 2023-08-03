@@ -12,7 +12,6 @@ export default function Card({ info, showModal, setCity, setFooter, setDate }) {
   return (
     <>
       {info.map((card, index) => {
-        console.log(card);
         return (
           <div
             className="card"

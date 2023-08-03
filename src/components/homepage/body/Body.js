@@ -20,6 +20,8 @@ export default function Body() {
     },
   ]);
 
+  console.log(acceptedTrip);
+
   const handle = () => {
     showModal ? setShowModal(false) : setShowModal(true);
   };
@@ -35,7 +37,7 @@ export default function Body() {
             setFooter={setFooter}
             setDate={setCurrDate}
           />
-          <AddTrip />
+          <AddTrip setAcceptedTrip={setAcceptedTrip} />
         </div>
       </div>
       {showModal && (

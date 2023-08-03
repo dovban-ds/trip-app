@@ -38,15 +38,20 @@
 
 .trip-modal-title div {
   cursor: pointer;
+  transition: opacity 0.5s linear;
 }
 
-div p span {
+.trip-modal-title div:hover {
+  opacity: 0.7;
+}
+
+.important {
   color: red;
 }
 
 .trip-modal-body {
   display: flex;
-  gap: 25px;
+  gap: 35px;
   flex-direction: column;
 }
 
@@ -54,4 +59,55 @@ div p span {
   margin-top: 10px;
   padding: 10px 4px;
   width: 100%;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgb(196, 194, 190);
+}
+
+.start-input input,
+.end-input input {
+  margin-top: 10px;
+  padding: 10px 4px;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgb(196, 194, 190);
+  box-sizing: border-box;
+}
+
+.input-title {
+  font-weight: 500;
+}
+
+.trip-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 25px;
+}
+
+.trip-modal-footer button {
+  padding: 5px 10px;
+  border: 1px solid rgb(180, 180, 180);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel {
+  transition: background-color 0.5s linear;
+  background-color: white;
+}
+
+.cancel:hover {
+  background-color: #d8d8d8;
+}
+
+.save {
+  background-color: #64b9ff;
+  color: white;
+  transition: background-color 0.5s linear;
+}
+
+.save:hover {
+  background-color: #5092c8;
 }
