@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./CountDown.css";
 import { getTimeLeft } from "../../../api/getTimeLeft";
+import { getCurrentDate } from "../../../api/getCurrentDate";
 
 export default function CountDown({ beginTrip }) {
   const beginDate = new Date(beginTrip);
   const timeLeft = getTimeLeft(beginDate);
+
+  // console.log(beginTrip);
 
   const [time, setTime] = useState({
     days: timeLeft.days,
@@ -33,25 +36,50 @@ export default function CountDown({ beginTrip }) {
 
   setTimeout(decrementTime, 1000);
 
-  console.log(timeLeft);
+  console.log(getCurrentDate(), beginTrip);
+
   return (
-    <div className="countdown-box">
-      <div className="days">
-        <div className="count-number">{time.days}</div>
-        <div className="count-name">DAYS</div>
-      </div>
-      <div className="hours">
-        <div className="count-number">{time.hours}</div>
-        <div className="count-name">HOURS</div>
-      </div>
-      <div className="minutes">
-        <div className="count-number">{time.minutes}</div>
-        <div className="count-name">MINUTES</div>
-      </div>
-      <div className="seconds">
-        <div className="count-number">{time.seconds}</div>
-        <div className="count-name">SECONDS</div>
-      </div>
-    </div>
+    <>
+      {getCurrentDate() >= beginTrip ? (
+        <div className="wish">Have a pleasent journey!</div>
+      ) : (
+        <div className="countdown-box">
+          <div className="days">
+            <div className="count-number">{time.days}</div>
+            <div className="count-name">DAYS</div>
+          </div>
+          <div className="hours">
+            <div className="count-number">{time.hours}</div>
+            <div className="count-name">HOURS</div>
+          </div>
+          <div className="minutes">
+            <div className="count-number">{time.minutes}</div>
+            <div className="count-name">MINUTES</div>
+          </div>
+          <div className="seconds">
+            <div className="count-number">{time.seconds}</div>
+            <div className="count-name">SECONDS</div>
+          </div>
+        </div>
+      )}
+      {/* <div className="countdown-box">
+        <div className="days">
+          <div className="count-number">{time.days}</div>
+          <div className="count-name">DAYS</div>
+        </div>
+        <div className="hours">
+          <div className="count-number">{time.hours}</div>
+          <div className="count-name">HOURS</div>
+        </div>
+        <div className="minutes">
+          <div className="count-number">{time.minutes}</div>
+          <div className="count-name">MINUTES</div>
+        </div>
+        <div className="seconds">
+          <div className="count-number">{time.seconds}</div>
+          <div className="count-name">SECONDS</div>
+        </div>
+      </div> */}
+    </>
   );
 }
