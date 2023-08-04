@@ -24,7 +24,6 @@ export default function Footer({ tripArr, detailsModal }) {
   const handleScrollLeft = async (event) => {
     const container = document.querySelector(".weather");
     if (container) {
-      console.log(container.scrollLeft);
       container.scrollLeft -= 280;
     }
   };
@@ -32,7 +31,6 @@ export default function Footer({ tripArr, detailsModal }) {
   const handleScrollRight = (event) => {
     const container = document.querySelector(".weather");
     if (container) {
-      console.log(container.scrollLeft);
       container.scrollLeft += 280;
     }
   };
