@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./TripModal.css";
 import { cities } from "../../../const/cities";
 import { capitalizeFirstLetter } from "../../../api/capitalizeLetter";
 import { getCurrentDate } from "../../../api/getCurrentDate";
+import { TripsContext } from "../../../provider/accepterTrips.provider";
 
-export default function TripModal({ modalStatus, setAcceptedTrip }) {
+export default function TripModal({ modalStatus }) {
   const [inputs, setInputs] = useState({
     start: {
       type: "text",
@@ -16,6 +17,8 @@ export default function TripModal({ modalStatus, setAcceptedTrip }) {
     },
   });
   const [selectedCity, setSelectedCity] = useState("");
+
+  const { setAcceptedTrip } = useContext(TripsContext);
 
   const inputRefStart = useRef(null);
   const inputRefEnd = useRef(null);
@@ -60,11 +63,29 @@ export default function TripModal({ modalStatus, setAcceptedTrip }) {
   };
 
   const submitHandle = (e) => {
+    const startDate = new Date(inputs.start.value);
+    const endDate = new Date(inputs.end.value);
+
+    const currentDate = new Date();
+
+    const differenceStart = startDate.getTime() - currentDate.getTime();
+
+    const differenceEnd = endDate.getTime() - currentDate.getTime();
+
+    const fifteenDaysInMillis = 15 * 24 * 60 * 60 * 1000;
+
     if (
       inputs.start.value > inputs.end.value ||
       inputs.start.value < getCurrentDate()
     )
       return alert("Select correct date!");
+
+    if (
+      differenceStart > fifteenDaysInMillis ||
+      differenceEnd > fifteenDaysInMillis
+    )
+      return alert("The start/end date should be within the next 15 days");
+
     e.preventDefault();
     setAcceptedTrip((prevState) => [
       ...prevState,
@@ -92,8 +113,8 @@ export default function TripModal({ modalStatus, setAcceptedTrip }) {
               <option value="" disabled selected hidden>
                 Please select a city
               </option>
-              {Object.keys(cities).map((key) => (
-                <option key={key} value={key}>
+              {Object.entries(cities).map(([key, value]) => (
+                <option key={value} value={value}>
                   {cities[key]}
                 </option>
               ))}

@@ -11,7 +11,6 @@ export default function Header() {
         </div>
         <Search />
       </div>
-      {/* <Search /> */}
     </>
   );
 }

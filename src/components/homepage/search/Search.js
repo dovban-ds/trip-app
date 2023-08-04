@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Search.css";
+import { TripsContext } from "../../../provider/accepterTrips.provider";
+import { searchTrip } from "../../../api/searchTrip";
 
 export default function Search() {
   const initialInputValue = "Search your trip";
@@ -7,24 +9,35 @@ export default function Search() {
   const [inputValue, setInputValue] = useState(initialInputValue);
   const [isInputFocused, setInputFocused] = useState(false);
   const [prevInputValue, setPrevInputValue] = useState("");
+  const [initTripArr, setInitTripArr] = useState();
 
-  const handleFocus = () => {
-    setInputFocused(true);
+  const { acceptedTrip, setAcceptedTrip, setIsSearch } =
+    useContext(TripsContext);
+
+  const handleFocus = async () => {
+    await setInputFocused(true);
+    await setIsSearch(true);
     if (inputValue === initialInputValue) {
-      setInputValue("");
+      await setInputValue("");
+      await setInitTripArr(acceptedTrip);
     }
   };
 
-  const handleBlur = () => {
-    setInputFocused(false);
+  const handleBlur = async () => {
+    await setInputFocused(false);
     if (inputValue.trim() === "") {
-      setInputValue(initialInputValue);
+      await setInputValue(initialInputValue);
+      await setIsSearch(false);
     }
   };
 
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
+  const handleChange = async (event) => {
+    await setInputValue(event.target.value);
+    const searchedTrips = searchTrip(initTripArr, event.target.value);
+    await setAcceptedTrip(searchedTrips);
+    // console.log(searchedTrips);
   };
+
   return (
     <div className="input-box">
       <input

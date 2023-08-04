@@ -7,8 +7,6 @@ export default function CountDown({ beginTrip }) {
   const beginDate = new Date(beginTrip);
   const timeLeft = getTimeLeft(beginDate);
 
-  // console.log(beginTrip);
-
   const [time, setTime] = useState({
     days: timeLeft.days,
     hours: timeLeft.hours,
@@ -35,8 +33,6 @@ export default function CountDown({ beginTrip }) {
   };
 
   setTimeout(decrementTime, 1000);
-
-  console.log(getCurrentDate(), beginTrip);
 
   return (
     <>

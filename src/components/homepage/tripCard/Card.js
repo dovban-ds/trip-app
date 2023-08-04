@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Card.css";
+import { TripsContext } from "../../../provider/accepterTrips.provider";
 
-export default function Card({ info, showModal, setCity, setFooter, setDate }) {
+export default function Card({ showModal, setCity, setFooter, setDate }) {
   const cardHandle = (city, date) => {
     setCity(city);
     setDate(date);
@@ -9,17 +10,34 @@ export default function Card({ info, showModal, setCity, setFooter, setDate }) {
     showModal();
   };
 
+  const { acceptedTrip, setAcceptedTrip } = useContext(TripsContext);
+
+  const handleCardDelete = (city, e) => {
+    e.stopPropagation();
+    const updatedTrips = acceptedTrip.filter((trip) => trip.city !== city);
+    setAcceptedTrip(updatedTrips);
+  };
+
   return (
     <>
-      {info.map((card, index) => {
+      {acceptedTrip.map((card, index) => {
         return (
           <li
             className="card"
-            onClick={() => cardHandle(card.city, card.date)}
+            onClick={(e) => {
+              e.stopPropagation();
+              cardHandle(card.city, card.date);
+            }}
             key={index}
             draggable="false"
           >
             <div className="card-title">
+              <div
+                className="card-del"
+                onClick={(e) => handleCardDelete(card.city, e)}
+              >
+                ❌
+              </div>
               <img
                 src={`./${card.city.toLowerCase()}.jpg`}
                 alt={card.city}

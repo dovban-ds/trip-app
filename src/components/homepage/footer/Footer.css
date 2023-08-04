@@ -37,11 +37,16 @@
 .small {
   width: 55%;
   grid-auto-columns: calc((100% / 3) - 30px);
+  grid-auto-columns: minmax(calc((100% / 3) - 30px), 1fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(calc((100% / 3) - 30px), 1fr)); */
 }
 
 .full {
   width: 100%;
-  grid-auto-columns: calc((100% / 6) - 30px);
+  /* grid-auto-columns: calc((100% / 6) - 30px); */
+  grid-template-columns: repeat(auto-fit, minmax(calc((100% / 6) - 30px), 1fr));
+  grid-auto-columns: minmax(calc((100% / 6) - 30px), 1fr);
+  /* grid-auto-flow: column; */
 }
 
 /* .flex-small {
@@ -113,24 +118,44 @@
 @media screen and (max-width: 1200px) {
   .full {
     grid-auto-columns: calc((100% / 4) - 30px);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc((100% / 4) - 30px), 1fr)
+    );
   }
   .small {
     grid-auto-columns: calc((100% / 2) - 30px);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc((100% / 2) - 30px), 1fr)
+    );
   }
 }
 
 @media screen and (max-width: 900px) {
   .full {
     grid-auto-columns: calc((100% / 3) - 30px);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc((100% / 3) - 30px), 1fr)
+    );
   }
   .small {
     grid-auto-columns: calc((100% / 1) - 30px);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc((100% / 1) - 30px), 1fr)
+    );
   }
 }
 
 @media screen and (max-width: 600px) {
   .full {
     grid-auto-columns: calc((100% / 1) - 30px);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc((100% / 1) - 30px), 1fr)
+    );
   }
   .footer-title {
     font-size: 1rem;

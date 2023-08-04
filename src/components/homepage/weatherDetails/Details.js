@@ -2,7 +2,7 @@ import React from "react";
 import "./Details.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import Loader from "../../Loader";
+import Loader from "../../loader/Loader";
 import { getCurrentDate } from "../../../api/getCurrentDate";
 import { filterArr } from "../../../api/filterArray";
 import CountDown from "../countDown/CountDown";

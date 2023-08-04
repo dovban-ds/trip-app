@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* flex-basis: 23%; */
   background-color: rgb(247, 243, 243);
   transition: background-color 1s linear;
+  min-height: 270px;
 }
 
 .sign {

@@ -131,6 +131,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   overflow: hidden;
+  user-select: none;
 }
 
 @media screen and (max-width: 900px) {
