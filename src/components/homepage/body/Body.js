@@ -14,12 +14,7 @@ export default function Body() {
   const [currDate, setCurrDate] = useState();
   const [footer, setFooter] = useState(false);
   const [tripDateArr, setTripDateArr] = useState([]);
-  // const [acceptedTrip, setAcceptedTrip] = useState([
-  //   {
-  //     city: cities.kyiv,
-  //     date: "2023-08-04 - 2023-08-15",
-  //   },
-  // ]);
+
   const [firstCard, setFirstCard] = useState(null);
   const carousel = useRef(null);
 

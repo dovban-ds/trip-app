@@ -36,7 +36,7 @@ export default function Card({ showModal, setCity, setFooter, setDate }) {
                 className="card-del"
                 onClick={(e) => handleCardDelete(card.city, e)}
               >
-                ❌
+                Abandon
               </div>
               <img
                 src={`./${card.city.toLowerCase()}.jpg`}

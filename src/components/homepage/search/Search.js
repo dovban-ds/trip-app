@@ -8,7 +8,7 @@ export default function Search() {
 
   const [inputValue, setInputValue] = useState(initialInputValue);
   const [isInputFocused, setInputFocused] = useState(false);
-  const [prevInputValue, setPrevInputValue] = useState("");
+  // const [prevInputValue, setPrevInputValue] = useState("");
   const [initTripArr, setInitTripArr] = useState();
 
   const { acceptedTrip, setAcceptedTrip, setIsSearch } =
@@ -35,18 +35,33 @@ export default function Search() {
     await setInputValue(event.target.value);
     const searchedTrips = searchTrip(initTripArr, event.target.value);
     await setAcceptedTrip(searchedTrips);
-    // console.log(searchedTrips);
+  };
+
+  const handleSort = async () => {
+    const sorted = acceptedTrip.slice().sort((a, b) => {
+      const aDate = new Date(a.date.slice(0, 10)).getTime();
+      const bDate = new Date(b.date.slice(0, 10)).getTime();
+
+      return aDate - bDate;
+    });
+
+    await setAcceptedTrip(sorted);
   };
 
   return (
-    <div className="input-box">
-      <input
-        type="text"
-        value={inputValue}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChange={handleChange}
-      />
+    <div className="search-box">
+      <div className="input-box">
+        <input
+          type="text"
+          value={inputValue}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="sort-btn">
+        <button onClick={handleSort}>Sort by closest</button>
+      </div>
     </div>
   );
 }

@@ -130,12 +130,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   user-select: none;
 }
-
-@media screen and (max-width: 900px) {
+/* 
+@media screen and (max-width: 700px) {
   body {
     overflow: auto;
   }
-}
+} */
