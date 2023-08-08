@@ -54,8 +54,8 @@
 @media screen and (max-width: 600px) {
   .hallmark {
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 10px;
+    gap: 20px;
+    /* margin-bottom: 10px; */
   }
 }
 

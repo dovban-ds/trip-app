@@ -1,7 +1,7 @@
 {
   "name": "reenbit-intership",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://dovban-ds.github.io/trip-app",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",

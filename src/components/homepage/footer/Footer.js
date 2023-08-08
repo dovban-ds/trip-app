@@ -55,7 +55,10 @@ export default function Footer({ tripArr, detailsModal }) {
               >
                 <div className="weather-card-day">{daysNames[index]}</div>
                 <div className="weather-card-icon">
-                  <img src={`./${item.icon}.svg`} alt="weather-icon" />
+                  <img
+                    src={require(`../../../../public/${item.icon}.svg`)}
+                    alt="weather-icon"
+                  />
                 </div>
                 <div className="weather-card-temp">
                   {item.tempmax.toFixed(0)}° / {item.tempmin.toFixed(0)}°

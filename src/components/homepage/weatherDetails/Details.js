@@ -80,7 +80,10 @@ export default function Details({ showModal, city, tripDate, setTripFooter }) {
             >
               <p className="day">{dayName}</p>
               <div className="temp-cont">
-                <img src={`/${actualDay.icon}.svg`} alt="weather-icon" />
+                <img
+                  src={require(`../../../../public/${actualDay.icon}.svg`)}
+                  alt="weather-icon"
+                />
                 <p className="current-temp">
                   {actualDay.temp.toFixed(0)}
                   <span>°C</span>

@@ -39,7 +39,7 @@ export default function Card({ showModal, setCity, setFooter, setDate }) {
                 Abandon
               </div>
               <img
-                src={`./${card.city.toLowerCase()}.jpg`}
+                src={require(`../../../../public/${card.city.toLowerCase()}.jpg`)}
                 alt={card.city}
                 draggable="false"
               />

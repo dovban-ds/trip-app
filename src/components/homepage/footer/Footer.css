@@ -157,9 +157,6 @@
       minmax(calc((100% / 1) - 30px), 1fr)
     );
   }
-  .footer-title {
-    font-size: 1rem;
-  }
 }
 
 @media screen and (max-width: 550px) {
@@ -171,13 +168,7 @@
 
 @media screen and (max-height: 700px) {
   .weather-card-icon {
-    margin: 10px;
+    margin: 5px;
     width: 2rem;
-  }
-
-  .footer-title {
-    margin-top: 1%;
-    margin-bottom: 1%;
-    font-size: 1.3rem;
   }
 }
