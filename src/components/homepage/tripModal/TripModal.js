@@ -129,7 +129,7 @@ export default function TripModal({ modalStatus }) {
               placeholder="Select date"
               value={inputs.start.value}
               onChange={(e) => handleInputChange(e, "start")}
-              onClick={() => handleClick("start")}
+              onFocus={() => handleClick("start")}
               onBlur={() => handleBlur("start")}
               ref={inputRefStart}
             />
