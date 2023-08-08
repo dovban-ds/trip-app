@@ -1,14 +1,46 @@
 {
   "files": {
-    "main.css": "/trip-app/static/css/main.33b239b4.css",
-    "main.js": "/trip-app/static/js/main.196b5a04.js",
+    "main.css": "/trip-app/static/css/main.04f2fe37.css",
+    "main.js": "/trip-app/static/js/main.4b277458.js",
+    "static/media/london.jpg": "/trip-app/static/media/london.e83213584e16d7b04298.jpg",
+    "static/media/athens.jpg": "/trip-app/static/media/athens.2290b2d7724a168e889d.jpg",
+    "static/media/washington.jpg": "/trip-app/static/media/washington.9c586e7d6a8b0bf74bb5.jpg",
+    "static/media/kyiv.jpg": "/trip-app/static/media/kyiv.4b4f72d93e7e70cab7f7.jpg",
+    "static/media/ankara.jpg": "/trip-app/static/media/ankara.391f289dc7df166bf97a.jpg",
+    "static/media/tokyo.jpg": "/trip-app/static/media/tokyo.5a160131630304de88c8.jpg",
     "static/media/background.jpg": "/trip-app/static/media/background.9ab04b6193fbcfab3014.jpg",
+    "static/media/abu dhabi.jpg": "/trip-app/static/media/abu dhabi.f416f014be71de5c02f5.jpg",
+    "static/media/berlin.jpg": "/trip-app/static/media/berlin.0b8741131f35f2376d33.jpg",
+    "static/media/stockholm.jpg": "/trip-app/static/media/stockholm.30ef0375569a86a869a6.jpg",
+    "static/media/barcelona.jpg": "/trip-app/static/media/barcelona.3dc6ff212553a169ad38.jpg",
+    "static/media/snow-showers-night.svg": "/trip-app/static/media/snow-showers-night.91f635208aa0c51ba9cd.svg",
+    "static/media/snow-showers-day.svg": "/trip-app/static/media/snow-showers-day.4b481263984dc78c37aa.svg",
+    "static/media/thunder-showers-night.svg": "/trip-app/static/media/thunder-showers-night.935adff480ff6e1dbcca.svg",
+    "static/media/snow.svg": "/trip-app/static/media/snow.5cd9d2df6b8a615bb430.svg",
+    "static/media/thunder-showers-day.svg": "/trip-app/static/media/thunder-showers-day.8d97ccd035616f277d50.svg",
+    "static/media/rain-snow-showers-night.svg": "/trip-app/static/media/rain-snow-showers-night.0de1d5a55af232398589.svg",
+    "static/media/showers-night.svg": "/trip-app/static/media/showers-night.873426b7a281b44ccbe1.svg",
+    "static/media/rain-snow-showers-day.svg": "/trip-app/static/media/rain-snow-showers-day.bbae52cb3b31c779f059.svg",
+    "static/media/thunder-rain.svg": "/trip-app/static/media/thunder-rain.f1832e90c98c53adf9e7.svg",
+    "static/media/showers-day.svg": "/trip-app/static/media/showers-day.509a1ba1edc4b13535ad.svg",
+    "static/media/thunder.svg": "/trip-app/static/media/thunder.57b2c0db379d7543e45d.svg",
+    "static/media/rain-snow.svg": "/trip-app/static/media/rain-snow.0007ef369b7c54d6283d.svg",
+    "static/media/partly-cloudy-day.svg": "/trip-app/static/media/partly-cloudy-day.fb0c783594fd8102cf86.svg",
+    "static/media/hail.svg": "/trip-app/static/media/hail.136b4e1335cc8985fdff.svg",
+    "static/media/wind.svg": "/trip-app/static/media/wind.5a95427cbc9a431f7838.svg",
+    "static/media/rain.svg": "/trip-app/static/media/rain.6e58cc7dcb66f8b2afb5.svg",
+    "static/media/sleet.svg": "/trip-app/static/media/sleet.6d8e4c6395f0482e8470.svg",
+    "static/media/cloudy.svg": "/trip-app/static/media/cloudy.57f38995f0f82dd5dc08.svg",
     "index.html": "/trip-app/index.html",
-    "main.33b239b4.css.map": "/trip-app/static/css/main.33b239b4.css.map",
-    "main.196b5a04.js.map": "/trip-app/static/js/main.196b5a04.js.map"
+    "static/media/clear-night.svg": "/trip-app/static/media/clear-night.17ac83aa4b47967708fa.svg",
+    "static/media/clear-day.svg": "/trip-app/static/media/clear-day.55f155dffdd173d4bbe5.svg",
+    "static/media/loader.svg": "/trip-app/static/media/loader.55f155dffdd173d4bbe51b73a7b573c2.svg",
+    "static/media/fog.svg": "/trip-app/static/media/fog.5465c93e38463cdf13b3.svg",
+    "main.04f2fe37.css.map": "/trip-app/static/css/main.04f2fe37.css.map",
+    "main.4b277458.js.map": "/trip-app/static/js/main.4b277458.js.map"
   },
   "entrypoints": [
-    "static/css/main.33b239b4.css",
-    "static/js/main.196b5a04.js"
+    "static/css/main.04f2fe37.css",
+    "static/js/main.4b277458.js"
   ]
 }
