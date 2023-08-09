@@ -35,6 +35,7 @@
 
 .trip-cards i:last-child {
   right: -22px;
+  display: none;
 }
 
 .carousel {

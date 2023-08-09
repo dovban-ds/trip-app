@@ -32,12 +32,12 @@ export default function Card({ showModal, setCity, setFooter, setDate }) {
             draggable="false"
           >
             <div className="card-title">
-              <div
+              {/* <div
                 className="card-del"
                 onClick={(e) => handleCardDelete(card.city, e)}
               >
                 Abandon
-              </div>
+              </div> */}
               <img
                 src={require(`../../../../public/${card.city.toLowerCase()}.jpg`)}
                 alt={card.city}
@@ -45,7 +45,15 @@ export default function Card({ showModal, setCity, setFooter, setDate }) {
               />
             </div>
             <div className="card-body">
-              <p className="city">{card.city}</p>
+              <div className="city-block">
+                <p className="city">{card.city}</p>
+                <div
+                  className="card-del"
+                  onClick={(e) => handleCardDelete(card.city, e)}
+                >
+                  Abandon
+                </div>
+              </div>
               <p>{card.date}</p>
             </div>
           </li>

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import "./Body.css";
-// import Search from "../search/Search";
 import Card from "../tripCard/Card";
-// import { cities } from "../../../const/cities";
 import Details from "../weatherDetails/Details";
 import Footer from "../footer/Footer";
 import AddTrip from "../addTrip/AddTrip";
@@ -24,7 +22,7 @@ export default function Body() {
   const [firstCard, setFirstCard] = useState(null);
   const carousel = useRef(null);
 
-  // const { acceptedTrip, setAcceptedTrip } = useContext(TripsContext);
+  const { acceptedTrip, setAcceptedTrip } = useContext(TripsContext);
 
   const handle = () => {
     showModal ? setShowModal(false) : setShowModal(true);
@@ -37,13 +35,19 @@ export default function Body() {
     if (firstCard) {
       setFirstCard(firstCard.clientWidth + 30);
       setArrws(arrowIcons);
-      // setScrlWidth(carousel.current.scrollWidth - carousel.current.clientWidth);
+      if (carousel.current.scrollWidth > carousel.current.clientWidth) {
+        arrws[1].style.display = "block";
+      }
     } else {
       return;
     }
   }, []);
 
-  // const arrowIcons = document.querySelectorAll(".carousel i");
+  useEffect(() => {
+    if (carousel.current.scrollWidth > carousel.current.clientWidth) {
+      arrws[1].style.display = "block";
+    }
+  }, [acceptedTrip]);
 
   const dragging = (e) => {
     if (!isDrag) return;
@@ -74,6 +78,10 @@ export default function Body() {
       carousel.current.scrollLeft === 0 ? "none" : "block";
     arrws[1].style.display =
       carousel.current.scrollLeft === scrlWidth ? "none" : "block";
+
+    if (carousel.current.scrollWidth > carousel.current.clientWidth) {
+      arrws[1].style.display = "block";
+    }
   };
 
   return (

@@ -201,3 +201,10 @@
     width: 30%;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .details {
+    width: 50%;
+    left: 46%;
+  }
+}

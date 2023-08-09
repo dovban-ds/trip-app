@@ -14,24 +14,21 @@
 }
 
 .weather {
-  /* display: flex;
-  margin: 3% 0;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scroll-padding: 0 24px;
-  */
   transition: width 0.3s linear;
   display: grid;
   grid-auto-flow: column;
-  /* grid-auto-columns: calc((100% / 6) - 30px); */
   gap: 30px;
   overflow: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
   position: relative;
+}
+
+.weather.dragging {
+  scroll-behavior: auto;
+  cursor: grab;
+  user-select: none;
 }
 
 .small {
@@ -58,7 +55,7 @@
 } */
 
 .weather-card {
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
   /* flex-basis: 25%; */
   flex-shrink: 0;
   display: flex;
@@ -105,10 +102,12 @@
 
 .left {
   left: -22px;
+  display: none;
 }
 
 .right {
   right: -22px;
+  display: none;
 }
 
 .arr-small {
