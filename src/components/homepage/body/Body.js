@@ -32,11 +32,14 @@ export default function Body() {
     const firstCard = carousel.current.querySelector(".card");
     const arrowIcons = document.querySelectorAll("i");
 
+    console.log(arrowIcons);
+
     if (firstCard) {
       setFirstCard(firstCard.clientWidth + 30);
       setArrws(arrowIcons);
       if (carousel.current.scrollWidth > carousel.current.clientWidth) {
-        arrws[1].style.display = "block";
+        const arr = document.querySelector(".fa-angle-right");
+        arr.style.display = "block";
       }
     } else {
       return;
@@ -45,7 +48,8 @@ export default function Body() {
 
   useEffect(() => {
     if (carousel.current.scrollWidth > carousel.current.clientWidth) {
-      arrws[1].style.display = "block";
+      const arr = document.querySelector(".fa-angle-right");
+      arr.style.display = "block";
     }
   }, [acceptedTrip]);
 
