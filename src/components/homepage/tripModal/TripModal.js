@@ -28,28 +28,29 @@ export default function TripModal({ modalStatus }) {
     setSelectedCity(value);
   };
 
-  const handleBlur = (inputName) => {
-    setInputs((prevInputs) => {
-      const newInputs = { ...prevInputs };
-      if (newInputs[inputName].value) {
-        newInputs[inputName].type = "date";
-      } else {
-        newInputs[inputName].type = "text";
-      }
-      return newInputs;
-    });
-  };
+  // const handleBlur = (inputName) => {
+  //   setInputs((prevInputs) => {
+  //     const newInputs = { ...prevInputs };
+  //     if (newInputs[inputName].value) {
+  //       newInputs[inputName].type = "date";
+  //     } else {
+  //       newInputs[inputName].type = "text";
+  //     }
+  //     return newInputs;
+  //   });
+  // };
 
-  const handleClick = async (inputName) => {
-    await setInputs((prevInputs) => {
-      const newInputs = { ...prevInputs };
-      newInputs[inputName].type = "date";
-      return newInputs;
-    });
+  // const handleClick = async (inputName) => {
+  //   await setInputs((prevInputs) => {
+  //     const newInputs = { ...prevInputs };
+  //     newInputs[inputName].type = "date";
+  //     return newInputs;
+  //   });
 
-    const inputRef = inputName === "start" ? inputRefStart : inputRefEnd;
-    inputRef.current.showPicker();
-  };
+  //   const inputRef = inputName === "start" ? inputRefStart : inputRefEnd;
+  //   inputRef.current.blur();
+  //   inputRef.current.showPicker();
+  // };
 
   const handleInputChange = (event, inputName) => {
     const { value } = event.target;
@@ -97,6 +98,15 @@ export default function TripModal({ modalStatus }) {
     modalStatus(false);
   };
 
+  const foc = (input) => {
+    input.current.type = "date";
+    return input.current.showPicker();
+  };
+
+  const blr = (input) => {
+    return (input.current.type = "text");
+  };
+
   return (
     <div className="tripmodal-overlay" onClick={() => modalStatus(false)}>
       <div className="trip-modal" onClick={(e) => e.stopPropagation()}>
@@ -125,12 +135,22 @@ export default function TripModal({ modalStatus }) {
               <span className="important">*</span> Start date
             </p>
             <input
-              type={inputs.start.type}
+              // type={inputs.start.type}
+              type="text"
               placeholder="Select date"
               value={inputs.start.value}
               onChange={(e) => handleInputChange(e, "start")}
-              onFocus={() => handleClick("start")}
-              onBlur={() => handleBlur("start")}
+              // onClick={() => handleClick("start")}
+              // onBlur={() => handleBlur("start")}
+              onFocus={() => {
+                foc(inputRefStart);
+              }}
+              onTouchStart={() => {
+                foc(inputRefStart);
+              }}
+              onBlur={() => {
+                blr(inputRefStart);
+              }}
               ref={inputRefStart}
             />
           </div>
@@ -139,12 +159,22 @@ export default function TripModal({ modalStatus }) {
               <span className="important">*</span> End date
             </p>
             <input
-              type={inputs.end.type}
+              // type={inputs.end.type}
+              type="text"
               placeholder="Select date"
               value={inputs.end.value}
               onChange={(e) => handleInputChange(e, "end")}
-              onClick={() => handleClick("end")}
-              onBlur={() => handleBlur("end")}
+              // onClick={() => handleClick("end")}
+              // onBlur={() => handleBlur("end")}
+              onFocus={() => {
+                foc(inputRefEnd);
+              }}
+              onTouchStart={() => {
+                foc(inputRefEnd);
+              }}
+              onBlur={() => {
+                blr(inputRefEnd);
+              }}
               ref={inputRefEnd}
             />
           </div>
