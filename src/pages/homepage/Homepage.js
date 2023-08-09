@@ -15,21 +15,17 @@ export default function Homepage() {
   };
 
   useEffect(() => {
-    try {
-      /* global google */
-      google.accounts.id.initialize({
-        client_id:
-          "167322193376-ceon6a8tttf9ibsrijrb7co7omrqrp9n.apps.googleusercontent.com",
-        callback: handleCallbackResponse,
-      });
+    /* global google */
+    google.accounts.id.initialize({
+      client_id:
+        "167322193376-ceon6a8tttf9ibsrijrb7co7omrqrp9n.apps.googleusercontent.com",
+      callback: handleCallbackResponse,
+    });
 
-      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-        theme: "outline",
-        size: "large",
-      });
-    } catch {
-      document.location.reload();
-    }
+    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+      theme: "outline",
+      size: "large",
+    });
   }, []);
 
   return (
