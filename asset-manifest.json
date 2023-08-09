@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/trip-app/static/css/main.62597513.css",
-    "main.js": "/trip-app/static/js/main.cb9a93fd.js",
+    "main.css": "/trip-app/static/css/main.1ebd449d.css",
+    "main.js": "/trip-app/static/js/main.7d62ac5f.js",
     "static/media/london.jpg": "/trip-app/static/media/london.e83213584e16d7b04298.jpg",
     "static/media/athens.jpg": "/trip-app/static/media/athens.2290b2d7724a168e889d.jpg",
     "static/media/washington.jpg": "/trip-app/static/media/washington.9c586e7d6a8b0bf74bb5.jpg",
@@ -36,11 +36,11 @@
     "static/media/clear-day.svg": "/trip-app/static/media/clear-day.55f155dffdd173d4bbe5.svg",
     "static/media/loader.svg": "/trip-app/static/media/loader.55f155dffdd173d4bbe51b73a7b573c2.svg",
     "static/media/fog.svg": "/trip-app/static/media/fog.5465c93e38463cdf13b3.svg",
-    "main.62597513.css.map": "/trip-app/static/css/main.62597513.css.map",
-    "main.cb9a93fd.js.map": "/trip-app/static/js/main.cb9a93fd.js.map"
+    "main.1ebd449d.css.map": "/trip-app/static/css/main.1ebd449d.css.map",
+    "main.7d62ac5f.js.map": "/trip-app/static/js/main.7d62ac5f.js.map"
   },
   "entrypoints": [
-    "static/css/main.62597513.css",
-    "static/js/main.cb9a93fd.js"
+    "static/css/main.1ebd449d.css",
+    "static/js/main.7d62ac5f.js"
   ]
 }
