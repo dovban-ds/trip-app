@@ -40,15 +40,34 @@ export default function TripModal({ modalStatus }) {
     });
   };
 
-  const handleClick = async (inputName) => {
-    await setInputs((prevInputs) => {
-      const newInputs = { ...prevInputs };
-      newInputs[inputName].type = "date";
-      return newInputs;
-    });
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
 
-    const inputRef = inputName === "start" ? inputRefStart : inputRefEnd;
-    inputRef.current.showPicker();
+  const handleClick = async (inputName) => {
+    // await setInputs((prevInputs) => {
+    //   const newInputs = { ...prevInputs };
+    //   newInputs[inputName].type = "date";
+    //   return newInputs;
+    // });
+
+    // const inputRef = inputName === "start" ? inputRefStart : inputRefEnd;
+    // inputRef.current.showPicker();
+
+    if (isMobile) {
+      const inputRef = inputName === "start" ? inputRefStart : inputRefEnd;
+      inputRef.current.click(); // Open the native date picker
+    } else {
+      await setInputs((prevInputs) => {
+        const newInputs = { ...prevInputs };
+        newInputs[inputName].type = "date";
+        return newInputs;
+      });
+
+      const inputRef = inputName === "start" ? inputRefStart : inputRefEnd;
+      inputRef.current.showPicker();
+    }
   };
 
   const handleInputChange = (event, inputName) => {
@@ -129,7 +148,7 @@ export default function TripModal({ modalStatus }) {
               placeholder="Select date"
               value={inputs.start.value}
               onChange={(e) => handleInputChange(e, "start")}
-              onFocus={() => handleClick("start")}
+              onClick={() => handleClick("start")}
               onBlur={() => handleBlur("start")}
               ref={inputRefStart}
             />
