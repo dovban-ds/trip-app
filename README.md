@@ -24,6 +24,10 @@ Upon clicking "Done," the trip is added to the list.
 Implemented next/prev buttons for the list of trips and weather forecast.
 Button for sorting trips by the nearest.
 Implemented login through Google.
+
+# Problems and ToDos
 (IN PROGRESS) Implement store data (trips) after reloading page (IN PROGRESS).
+(FIXING IN PROGRESS) Datepicker work on phones (FIXING IN PROGRESS).
+(IN PROGRESS) Upgrading UX while using arrow-scroll (IN PROGRESS).
 
 
