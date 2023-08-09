@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import "./Body.css";
-import Search from "../search/Search";
+// import Search from "../search/Search";
 import Card from "../tripCard/Card";
-import { cities } from "../../../const/cities";
+// import { cities } from "../../../const/cities";
 import Details from "../weatherDetails/Details";
 import Footer from "../footer/Footer";
 import AddTrip from "../addTrip/AddTrip";
@@ -15,10 +15,16 @@ export default function Body() {
   const [footer, setFooter] = useState(false);
   const [tripDateArr, setTripDateArr] = useState([]);
 
+  const [isDrag, setIsDrag] = useState(false);
+  const [prevPageX, setPrevPageX] = useState();
+  const [prevScrollLeft, setPrevScrollLeft] = useState();
+  const [arrws, setArrws] = useState();
+  const [scrlWidth, setScrlWidth] = useState();
+
   const [firstCard, setFirstCard] = useState(null);
   const carousel = useRef(null);
 
-  const { acceptedTrip, setAcceptedTrip } = useContext(TripsContext);
+  // const { acceptedTrip, setAcceptedTrip } = useContext(TripsContext);
 
   const handle = () => {
     showModal ? setShowModal(false) : setShowModal(true);
@@ -26,13 +32,49 @@ export default function Body() {
 
   useEffect(() => {
     const firstCard = carousel.current.querySelector(".card");
+    const arrowIcons = document.querySelectorAll("i");
 
     if (firstCard) {
-      setFirstCard(firstCard.offsetWidth + 30);
+      setFirstCard(firstCard.clientWidth + 30);
+      setArrws(arrowIcons);
+      // setScrlWidth(carousel.current.scrollWidth - carousel.current.clientWidth);
     } else {
       return;
     }
-  });
+  }, []);
+
+  // const arrowIcons = document.querySelectorAll(".carousel i");
+
+  const dragging = (e) => {
+    if (!isDrag) return;
+    carousel.current.scrollLeft = e.pageX;
+    carousel.current.classList.add("dragging");
+    let posDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+    carousel.current.scrollLeft = prevScrollLeft - posDiff;
+    showHideIcons();
+  };
+
+  const dragStart = async (e) => {
+    setIsDrag(true);
+    setPrevPageX(e.pageX || e.touches[0].pageX);
+    setPrevScrollLeft(carousel.current.scrollLeft);
+  };
+
+  const dragStop = (e) => {
+    setIsDrag(false);
+    carousel.current.classList.remove("dragging");
+  };
+
+  const showHideIcons = async () => {
+    await setScrlWidth(
+      carousel.current.scrollWidth - carousel.current.clientWidth
+    );
+    // console.log(scrlWidth);
+    arrws[0].style.display =
+      carousel.current.scrollLeft === 0 ? "none" : "block";
+    arrws[1].style.display =
+      carousel.current.scrollLeft === scrlWidth ? "none" : "block";
+  };
 
   return (
     <>
@@ -42,9 +84,20 @@ export default function Body() {
             className="fa-solid fa-angle-left"
             onClick={(e) => {
               carousel.current.scrollLeft += -firstCard;
+              setTimeout(() => showHideIcons(), 60);
             }}
           ></i>
-          <ul className="carousel" ref={carousel}>
+          <ul
+            className="carousel"
+            onMouseMove={dragging}
+            onMouseDown={dragStart}
+            onMouseUp={dragStop}
+            onMouseLeave={dragStop}
+            onTouchStart={dragStart}
+            onTouchMove={dragging}
+            onTouchEnd={dragStop}
+            ref={carousel}
+          >
             <Card
               showModal={handle}
               setCity={setCurrCity}
@@ -57,6 +110,7 @@ export default function Body() {
             className="fa-solid fa-angle-right"
             onClick={() => {
               carousel.current.scrollLeft += firstCard;
+              setTimeout(() => showHideIcons(), 60);
             }}
           ></i>
         </div>

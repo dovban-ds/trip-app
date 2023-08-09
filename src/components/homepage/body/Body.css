@@ -30,6 +30,7 @@
 
 .trip-cards i:first-child {
   left: -22px;
+  display: none;
 }
 
 .trip-cards i:last-child {
@@ -45,6 +46,12 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
+}
+
+.carousel.dragging {
+  scroll-behavior: auto;
+  cursor: grab;
+  user-select: none;
 }
 
 .carousel::-webkit-scrollbar {
