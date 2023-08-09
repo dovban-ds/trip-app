@@ -28,30 +28,6 @@ export default function TripModal({ modalStatus }) {
     setSelectedCity(value);
   };
 
-  // const handleBlur = (inputName) => {
-  //   setInputs((prevInputs) => {
-  //     const newInputs = { ...prevInputs };
-  //     if (newInputs[inputName].value) {
-  //       newInputs[inputName].type = "date";
-  //     } else {
-  //       newInputs[inputName].type = "text";
-  //     }
-  //     return newInputs;
-  //   });
-  // };
-
-  // const handleClick = async (inputName) => {
-  //   await setInputs((prevInputs) => {
-  //     const newInputs = { ...prevInputs };
-  //     newInputs[inputName].type = "date";
-  //     return newInputs;
-  //   });
-
-  //   const inputRef = inputName === "start" ? inputRefStart : inputRefEnd;
-  //   inputRef.current.blur();
-  //   inputRef.current.showPicker();
-  // };
-
   const handleInputChange = (event, inputName) => {
     const { value } = event.target;
     setInputs((prevInputs) => ({
@@ -135,13 +111,10 @@ export default function TripModal({ modalStatus }) {
               <span className="important">*</span> Start date
             </p>
             <input
-              // type={inputs.start.type}
               type="text"
               placeholder="Select date"
               value={inputs.start.value}
               onChange={(e) => handleInputChange(e, "start")}
-              // onClick={() => handleClick("start")}
-              // onBlur={() => handleBlur("start")}
               onFocus={() => {
                 foc(inputRefStart);
               }}
@@ -159,13 +132,10 @@ export default function TripModal({ modalStatus }) {
               <span className="important">*</span> End date
             </p>
             <input
-              // type={inputs.end.type}
               type="text"
               placeholder="Select date"
               value={inputs.end.value}
               onChange={(e) => handleInputChange(e, "end")}
-              // onClick={() => handleClick("end")}
-              // onBlur={() => handleBlur("end")}
               onFocus={() => {
                 foc(inputRefEnd);
               }}

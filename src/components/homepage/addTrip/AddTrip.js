@@ -19,13 +19,7 @@ export default function AddTrip({ trip }) {
         >
           <div className="sign">➕</div>
           <div>Add trip</div>
-          {tripModal && (
-            <TripModal
-              modalStatus={setTripModal}
-              // setAcceptedTrip={setAcceptedTrip}
-              trip={trip}
-            />
-          )}
+          {tripModal && <TripModal modalStatus={setTripModal} trip={trip} />}
         </li>
       )}
     </>

@@ -107,7 +107,7 @@
 
 .right {
   right: -22px;
-  display: none;
+  display: block;
 }
 
 .arr-small {

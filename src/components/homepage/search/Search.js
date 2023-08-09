@@ -8,7 +8,6 @@ export default function Search() {
 
   const [inputValue, setInputValue] = useState(initialInputValue);
   const [isInputFocused, setInputFocused] = useState(false);
-  // const [prevInputValue, setPrevInputValue] = useState("");
   const [initTripArr, setInitTripArr] = useState();
 
   const { acceptedTrip, setAcceptedTrip, setIsSearch } =

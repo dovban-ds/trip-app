@@ -8,7 +8,6 @@
 
 .title {
   font-size: 2rem;
-  /* margin-bottom: 25px; */
 }
 
 .header-box strong {
@@ -55,7 +54,6 @@
   .hallmark {
     flex-direction: column;
     gap: 20px;
-    /* margin-bottom: 10px; */
   }
 }
 

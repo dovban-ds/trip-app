@@ -58,10 +58,3 @@
     font-size: 0.9rem;
   }
 }
-
-/* @media screen and (max-width: 400px) {
-  .search-box {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-} */

@@ -73,7 +73,6 @@ export default function Body() {
     await setScrlWidth(
       carousel.current.scrollWidth - carousel.current.clientWidth
     );
-    // console.log(scrlWidth);
     arrws[0].style.display =
       carousel.current.scrollLeft === 0 ? "none" : "block";
     arrws[1].style.display =
