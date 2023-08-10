@@ -5,6 +5,7 @@ import Details from "../weatherDetails/Details";
 import Footer from "../footer/Footer";
 import AddTrip from "../addTrip/AddTrip";
 import { TripsContext } from "../../../provider/accepterTrips.provider";
+import EmptyCard from "../emptyCard/EmptyCard";
 
 export default function Body() {
   const [showModal, setShowModal] = useState(false);
@@ -22,7 +23,7 @@ export default function Body() {
   const [firstCard, setFirstCard] = useState(null);
   const carousel = useRef(null);
 
-  const { acceptedTrip, setAcceptedTrip } = useContext(TripsContext);
+  const { acceptedTrip, isEmpty } = useContext(TripsContext);
 
   const handle = () => {
     showModal ? setShowModal(false) : setShowModal(true);
@@ -116,6 +117,7 @@ export default function Body() {
               setDate={setCurrDate}
             />
             <AddTrip />
+            {isEmpty && <EmptyCard />}
           </ul>
           <i
             className="fa-solid fa-angle-right"

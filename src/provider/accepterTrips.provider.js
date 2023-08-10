@@ -24,6 +24,8 @@ export const TripProvider = ({ children }) => {
 
   const [user, setUser] = useState({});
 
+  const [isEmpty, setIsEmpty] = useState(false);
+
   return (
     <TripsContext.Provider
       value={{
@@ -33,6 +35,8 @@ export const TripProvider = ({ children }) => {
         setIsSearch,
         user,
         setUser,
+        isEmpty,
+        setIsEmpty,
       }}
     >
       {children}

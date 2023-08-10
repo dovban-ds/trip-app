@@ -10,7 +10,7 @@ export default function Search() {
   const [isInputFocused, setInputFocused] = useState(false);
   const [initTripArr, setInitTripArr] = useState();
 
-  const { acceptedTrip, setAcceptedTrip, setIsSearch } =
+  const { acceptedTrip, setAcceptedTrip, setIsSearch, setIsEmpty } =
     useContext(TripsContext);
 
   const handleFocus = async () => {
@@ -34,6 +34,12 @@ export default function Search() {
     await setInputValue(event.target.value);
     const searchedTrips = searchTrip(initTripArr, event.target.value);
     await setAcceptedTrip(searchedTrips);
+    console.log(searchedTrips, !searchedTrips.length);
+    if (!searchedTrips.length) {
+      setIsEmpty(true);
+    } else {
+      setIsEmpty(false);
+    }
   };
 
   const handleSort = async () => {

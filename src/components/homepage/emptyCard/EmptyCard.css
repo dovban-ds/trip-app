@@ -1,0 +1,9 @@
+.empty-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(247, 243, 243);
+  transition: background-color 0.3s linear;
+  min-height: 270px;
+}
