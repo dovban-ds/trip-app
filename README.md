@@ -20,6 +20,7 @@ Upon clicking "Done," the trip is added to the list.
 Implemented next/prev buttons for the list of trips and weather forecast.
 Button for sorting trips by the nearest.
 Implemented login through Google.
+Possibility to cancel the trip.
 
 # Problems and ToDos
 
