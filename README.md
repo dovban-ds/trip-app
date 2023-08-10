@@ -1,7 +1,3 @@
-# Warning
-
-It may be required page reloading cause of linter bugs.
-
 # Main visualization
 
 Common visualization built with FlexBox. Carousels made with Grid layout.
